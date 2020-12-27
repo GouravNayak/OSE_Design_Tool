@@ -3,5 +3,6 @@ This is the template based on HTML-5 Angular 1.2 and Bootstrap 4. It uses Angula
 
 Life saver resource to build and deploy angularJS app to github pages: https://aashni.me/blog/create-and-deploy-angularjs-app-to-github-pages/
 If you want to learn about configuration of grunt, refer to this: https://gruntjs.com/configuring-tasks
+visit the website at: https://gouravnayak.github.io/OSE_Design_Tool/
 
 
