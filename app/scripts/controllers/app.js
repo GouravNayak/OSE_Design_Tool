@@ -8,51 +8,51 @@
     design_Tool_App.config(['$routeProvider',function($routeProvider) {
         $routeProvider
 			.when('/', {
-			    templateUrl : 'resources/pages/home.html'
+			    templateUrl : 'views/home.html'
 			})
             // route for the home page
             .when('/home', {
-                templateUrl : 'resources/pages/home.html'
+                templateUrl : 'views/home.html'
             })
 
             // route for the about page
             .when('/about', {
-                templateUrl : 'resources/pages/aboutus.html'
+                templateUrl : 'views/aboutus.html'
             })
 
             // route for the visual inspection page
             .when('/visualinspection', {
-                templateUrl : 'resources/pages/visualinspection.html'
+                templateUrl : 'views/visualinspection.html'
             })
             
             // route for the choice reaction time page
             .when('/choicereactiontime', {
-                templateUrl : 'resources/pages/choicereactiontime.html'
+                templateUrl : 'views/choicereactiontime.html'
             })
             
             // route for the fitts tapping page
             .when('/fittstapping', {
-                templateUrl : 'resources/pages/fittstapping.html'
+                templateUrl : 'views/fittstapping.html'
             })
             
             // route for the simple reaction time page
             .when('/simplereactiontime', {
-                templateUrl : 'resources/pages/simplereactiontime.html'
+                templateUrl : 'views/simplereactiontime.html'
             })
             
             // route for the learning curve page
             .when('/learningcurve', {
-                templateUrl : 'resources/pages/learningcurve.html'
+                templateUrl : 'views/learningcurve.html'
             })
             
             // route for the short term memory span page
             .when('/shorttermmemoryspan', {
-                templateUrl : 'resources/pages/shorttermmemoryspan.html'
+                templateUrl : 'views/shorttermmemoryspan.html'
             })
             
             // route for the short term memory span page
             .when('/strooptest', {
-                templateUrl : 'resources/pages/strooptest.html'
+                templateUrl : 'views/strooptest.html'
             })
             
 			.otherwise('/home');
