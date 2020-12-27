@@ -492,7 +492,7 @@ var pkg = require('./package.json');
     'ngAnnotate',
     'copy:dist',
     'cdnify',
-    /*'cssmin',
+   /* 'cssmin',
     'uglify',*/
     'filerev',
     'usemin',
