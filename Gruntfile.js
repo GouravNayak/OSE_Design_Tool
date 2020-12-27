@@ -11,12 +11,14 @@ module.exports = function (grunt) {
 
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
+  grunt.loadNpmTasks('grunt-build-control');
+var pkg = require('./package.json');
 
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
     ngtemplates: 'grunt-angular-templates',
-    cdnify: 'grunt-google-cdn'
+    cdnify: 'grunt-google-cdn2'
   });
 
   // Configurable paths for the application
@@ -25,14 +27,34 @@ module.exports = function (grunt) {
     dist: 'dist'
   };
   
-  grunt.loadNpmTasks('grunt-build-control');
-  var pkg = require('./package.json');
-
+  
+	
   // Define the configuration for all the tasks
   grunt.initConfig({
 
     // Project settings
     yeoman: appConfig,
+	
+	buildcontrol: {
+          options: {
+            dir: 'dist',
+            commit: true,
+            push: true,
+            message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+          },
+          pages: {
+            options: {
+              remote: 'https://github.com/GouravNayak/OSE_Design_Tool.git',
+              branch: 'gh-pages'
+            }
+          },
+          local: {
+            options: {
+              remote: '../',
+              branch: 'build'
+            }
+          }
+        },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -40,6 +62,7 @@ module.exports = function (grunt) {
         files: ['bower.json'],
         tasks: ['wiredep']
       },
+    },
       js: {
         files: ['<%= yeoman.app %>/scripts/{,*/}*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all'],
@@ -68,27 +91,6 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       },
-	      buildcontrol: {
-          options: {
-            dir: 'dist',
-            commit: true,
-            push: true,
-            message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-          },
-          pages: {
-            options: {
-              remote: 'https://github.com/GouravNayak/OSE_Design_Tool.git',
-              branch: 'gh-pages'
-            }
-          },
-          local: {
-            options: {
-              remote: '../',
-              branch: 'build'
-            }
-          }
-        },
-    },
 
     // The actual grunt server settings
     connect: {
@@ -490,8 +492,8 @@ module.exports = function (grunt) {
     'ngAnnotate',
     'copy:dist',
     'cdnify',
-    'cssmin',
-    'uglify',
+    /*'cssmin',
+    'uglify',*/
     'filerev',
     'usemin',
     'htmlmin'
