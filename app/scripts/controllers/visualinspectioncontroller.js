@@ -16,7 +16,7 @@ function visualinspectionController($scope, $window, $timeout){
 	$scope.show_modal_confirm = false;
 	$scope.show_info_test = false;
 	$scope.resistor_length=0.8;
-	$scope.left_trials = 1;
+	$scope.left_trials = $scope.exp_trial;
 	$scope.show_result_flag = false;
 	$scope.wait_for_resistor_flag=false;
 	
