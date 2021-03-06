@@ -10,7 +10,7 @@ function visualinspectionController($scope, $window, $timeout){
 	var leftline_length = 50;
 	var rightline_length = 50;
 	var resistor_length_min_limit = 50;
-	var resistor_length_max_limit = 1.2*resistor_length_min_limit //120%
+	var resistor_length_max_limit = 1.3*resistor_length_min_limit //130%
 	$scope.exp_trial = 1;
 	$scope.experiment_flag=false;//indicates if experiment is running
 	$scope.show_modal_confirm = false;
@@ -87,7 +87,7 @@ $scope.start_vi_main=function(){
 		$timeout(function () {
 			leftline_length = Math.floor(Math.random() * (resistor_length_max_limit - resistor_length_min_limit + 1)) + resistor_length_min_limit;
 			rightline_length = Math.floor(Math.random() * (resistor_length_max_limit - resistor_length_min_limit + 1)) + resistor_length_min_limit;
-      if(Math.random()<0.4){
+      if(Math.random()<0.3){
 		    	rightline_length = leftline_length;
 		    }
 		  initial_resistor_left_margin = Math.floor(Math.random() * (initial_resistor_left_margin_max - initial_resistor_left_margin_min + 1)) + initial_resistor_left_margin_min;
