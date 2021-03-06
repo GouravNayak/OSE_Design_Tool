@@ -45,6 +45,7 @@ function visualinspectionController($scope, $window, $timeout){
 	//for recording results
 	var trial_result_json={};
 	$scope.result_json = [];
+  var signal_term="HIT";
 // inspired from https://medium.com/dev-bits/programming-dynamic-drawings-animations-with-angular-js-and-two-js-9d2ec1ce2580
 
 //write a function to be called, when 0.8" is selected on radio button
@@ -145,10 +146,16 @@ $scope.action_equal=function(){
 	if ((0<$scope.left_trials) && ($scope.left_trials<=$scope.exp_trial)){
 		endTime = new Date();
 		response_time = (endTime-startTime)/1000;
+		if(lead_dif==0){
+			signal_term = "HIT";
+		}else{
+			signal_term = "FALSE ALARM";
+		}
 		trial_result_json = {'trial':$scope.exp_trial-$scope.left_trials+1,
 							'response_time':response_time,
 							'response':'equal',
-							'lead_difference':lead_dif};
+							'lead_difference':lead_dif,
+							'signal_term': signal_term};
 		$scope.result_json.push(trial_result_json);
 		$scope.left_trials=$scope.left_trials-1;
 		if($scope.left_trials==0){
@@ -170,10 +177,16 @@ $scope.action_unequal=function(){
 		//record the result
 		endTime = new Date();
 		response_time = (endTime-startTime)/1000;
+		if(lead_dif==0){
+			signal_term = "MISS";
+		}else{
+			signal_term = "CORRECT REJECTION";
+		}
 		trial_result_json = {'trial':$scope.exp_trial-$scope.left_trials+1,
 							'response_time':response_time,
 							'response':'unequal',
-							'lead_difference':lead_dif};
+							'lead_difference':lead_dif,
+							'signal_term': signal_term};
 		$scope.result_json.push(trial_result_json);
 		
 		$scope.left_trials=$scope.left_trials-1;
