@@ -87,7 +87,10 @@ $scope.start_vi_main=function(){
 		$timeout(function () {
 			leftline_length = Math.floor(Math.random() * (resistor_length_max_limit - resistor_length_min_limit + 1)) + resistor_length_min_limit;
 			rightline_length = Math.floor(Math.random() * (resistor_length_max_limit - resistor_length_min_limit + 1)) + resistor_length_min_limit;
-		    initial_resistor_left_margin = Math.floor(Math.random() * (initial_resistor_left_margin_max - initial_resistor_left_margin_min + 1)) + initial_resistor_left_margin_min;
+      if(Math.random()<0.4){
+		    	rightline_length = leftline_length;
+		    }
+		  initial_resistor_left_margin = Math.floor(Math.random() * (initial_resistor_left_margin_max - initial_resistor_left_margin_min + 1)) + initial_resistor_left_margin_min;
 			initial_resistor_top_margin = Math.floor(Math.random() * (initial_resistor_top_margin_max - initial_resistor_top_margin_min + 1)) + initial_resistor_top_margin_min;
 			lead_dif = (Math.abs(rightline_length-leftline_length)*100)/Math.min(rightline_length,leftline_length);
 			lead_dif = Math.round(lead_dif*100)/100;//upto 2 decimal places
