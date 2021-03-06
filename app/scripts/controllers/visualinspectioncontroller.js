@@ -10,7 +10,7 @@ function visualinspectionController($scope, $window, $timeout){
 	var leftline_length = 50;
 	var rightline_length = 50;
 	var resistor_length_min_limit = 50;
-	var resistor_length_max_limit = 1.3*resistor_length_min_limit //130%
+	var resistor_length_max_limit = 1.5*resistor_length_min_limit //130%
 	$scope.exp_trial = 1;
 	$scope.experiment_flag=false;//indicates if experiment is running
 	$scope.show_modal_confirm = false;
@@ -53,7 +53,7 @@ $scope.create_resistor=function(option_selected){
 	vi_canvas.clear();
 	//code to draw rectangle center_x,center_y,width,height
 	
-	var rect = vi_canvas.makeRectangle(initial_resistor_left_margin, initial_resistor_top_margin, (option_selected*resistor_width), resistor_height);
+	var rect = vi_canvas.makeRectangle(initial_resistor_left_margin, initial_resistor_top_margin, (1*resistor_width), resistor_height);
 	// linewidth property sets width of the line
 	rect.linewidth = resistor_linewidth;
 	// stroke property sets the color
@@ -61,9 +61,9 @@ $scope.create_resistor=function(option_selected){
 	rect.fill = resistor_fillcolor;
 	
 	// code to draw left line
-	var left_line = vi_canvas.makeLine((initial_resistor_left_margin-((option_selected*resistor_width)*0.5))-leftline_length,
+	var left_line = vi_canvas.makeLine((initial_resistor_left_margin-((1*resistor_width)*0.5))-(option_selected*leftline_length),
 									initial_resistor_top_margin, 
-									(initial_resistor_left_margin-((option_selected*resistor_width)*0.5)), 
+									(initial_resistor_left_margin-((1*resistor_width)*0.5)), 
 									initial_resistor_top_margin);
 	// linewidth property sets width of the line
 	left_line.linewidth = resistor_linewidth;
@@ -71,9 +71,9 @@ $scope.create_resistor=function(option_selected){
 	left_line.stroke = resistor_linecolor;
 	
 	// code to draw right line
-	var right_line = vi_canvas.makeLine((initial_resistor_left_margin+((option_selected*resistor_width)*0.5)), 
+	var right_line = vi_canvas.makeLine((initial_resistor_left_margin+((1*resistor_width)*0.5)), 
 										initial_resistor_top_margin, 
-										(initial_resistor_left_margin+((option_selected*resistor_width)*0.5))+rightline_length, 
+										(initial_resistor_left_margin+((1*resistor_width)*0.5))+(option_selected*rightline_length), 
 										initial_resistor_top_margin);
 	// linewidth property sets width of the line
 	right_line.linewidth = resistor_linewidth;
